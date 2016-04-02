@@ -17,6 +17,18 @@ else
     term_str="%F{yellow}$screen_name%{${reset_color}%} "
 fi
 
+computername=$(hostname -s)
+
+if [[ $computername == "" ]]; then
+    computername="UNKNOWN"
+elif [[ $computername == *"localhost"* ]]; then
+    computername="UNKNOWN"
+fi
+
+if [ -f "$HOME/.local/etc/computername" ]; then
+    computername=$(cat "$HOME/.local/etc/computername")
+fi
+
 # Detection du type de gestionnaire de version
 function in_vcs {
   git branch >/dev/null 2>/dev/null && return 0
