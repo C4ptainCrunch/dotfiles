@@ -48,7 +48,8 @@ function precmd {
     else
         local dircol="%{${fg_no_bold[green]}%}"
         local sign=">"
-        if [ `whoami` != "nikita" ]; then
+
+        if [ `whoami` != "nikita" ] || [ -n "$SUDO_USER" ]; then
             diffuser="%F{magenta}u:`whoami`%F{white} "
         fi
     fi
