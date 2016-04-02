@@ -29,6 +29,10 @@ if [ -f "$HOME/.local/etc/computername" ]; then
     computername=$(cat "$HOME/.local/etc/computername")
 fi
 
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+    computername="$%F{cyan}computername%F{white}"
+fi
+
 # Detection du type de gestionnaire de version
 function in_vcs {
   git branch >/dev/null 2>/dev/null && return 0
