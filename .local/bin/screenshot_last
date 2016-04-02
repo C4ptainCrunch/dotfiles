@@ -1,0 +1,31 @@
+#!/usr/bin/env python
+
+import datetime
+import glob
+import os
+import sys
+
+if len(sys.argv) == 1:
+    print("No argument provided.")
+    print("Usage: %s PATH" % sys.argv[0])
+    sys.exit(1)
+
+
+PATTERN = "Screenshot from *"
+
+path = os.path.join(sys.argv[1], PATTERN)
+
+l = sorted(glob.glob(path))
+if len(l) < 1:
+    print("No screenshot found in %s" % sys.argv[1])
+    sys.exit(1)
+
+target = l[-1]
+
+datestr = target[len(path) -1:-4]
+t = datetime.datetime.strptime(datestr, "%Y-%m-%d %H-%M-%S")
+if (datetime.datetime.now() - t) < datetime.timedelta(minutes=5):
+    print(target)
+else:
+    print('No screenshot taken in the last 5 minutes')
+    sys.exit(1)

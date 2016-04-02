@@ -1,0 +1,26 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]; then
+    if [ -f "ve/bin/activate" ]; then
+        venv="ve"
+    elif [ -f "ve3/bin/activate" ]; then
+        venv="ve3"
+    elif [ -f "ve2/bin/activate" ]; then
+        venv="ve2"
+    elif [ -f "venv/bin/activate" ]; then
+        venv="venv"
+    else
+        echo "No virtualenv found."
+        echo "Usage: $0 VENV";
+        exit 1;
+    fi
+fi
+
+if [ -f "$1/bin/activate" ]; then
+    venv=$1
+else
+    echo "Could not activate : '$1' is not a virtualenv."
+    exit 1;
+fi
+
+source ./$venv/bin/activate

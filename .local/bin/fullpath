@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]; then
+    echo "No arguments specified."
+    echo "Usage: $0 PATH";
+    exit 1;
+fi
+
+case `uname -s` in
+Darwin)
+    (cd "${1%/*}" &>/dev/null && printf "%s/%s" "$(pwd)" "${1##*/}")
+;;
+Linux)
+    readlink -f "$1"
+;;
+esac

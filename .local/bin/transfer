@@ -1,0 +1,26 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]; then
+    echo "No arguments specified."
+    echo "Usage:";
+    echo "echo $0 /tmp/test.md";
+    echo "cat /tmp/test.md | $0 test.md";
+
+    exit 1;
+fi
+
+tmpfile=$( mktemp -t transferXXX );
+
+
+if tty -s; then # if filename is given
+    basefile=$(basename "$1" | sed -e 's/[^a-zA-Z0-9._-]/-/g');
+    curl --progress-bar --upload-file "$1" "http://partou.se/upload/jemhW/$basefile" >> $tmpfile;
+
+else # if file is piped
+        curl --progress-bar --upload-file "-" "http://partou.se/upload/jemhW/$1" >> $tmpfile ;
+fi;
+
+cat $tmpfile;
+cat $tmpfile | xclip -selection c;
+
+rm -f $tmpfile;

@@ -1,0 +1,6 @@
+[Desktop Entry]
+    Name=Volume Icon
+    Exec=volumeicon
+    Type=Application
+    Icon=multimedia-volume-control
+    Categories=Audio;Music;AudioVideo;

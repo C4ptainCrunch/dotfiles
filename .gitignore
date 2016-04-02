@@ -1,0 +1,41 @@
+# Global .gitignore file
+
+no-git
+.idea
+.env
+*.pyc
+*.pyo
+/ve
+/ve3
+/venv
+/ve2
+
+# Inspired by GitHub .gitignore files
+
+# Hides OS crap
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+*~
+.goutputstream-*
+
+# Hides vim files
+.*.sw[a-z]
+*.un~
+Session.vim
+.netrwhist
+
+# Hides SublimeText projects
+*.sublime-workspace
+*.sublime-project
+
+# Don't want logs and db's to be versioned
+*.log
+*.sql
+*.sqlite

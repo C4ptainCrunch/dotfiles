@@ -1,0 +1,6 @@
+[Desktop Entry]
+    Name=Spotify Web
+    Exec=web.spotify
+    Type=Application
+    Icon=spotify-client
+    Categories=Audio;Music;Player;AudioVideo;

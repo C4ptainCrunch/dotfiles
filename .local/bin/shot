@@ -1,0 +1,22 @@
+#!/bin/bash
+
+
+if [ -d "$HOME/Downloads" ] ; then
+    path="$HOME/Downloads"
+elif [ -d "$HOME/Pictures" ]; then
+    path="$HOME/Pictures"
+else
+    path="$HOME"
+fi
+
+screenshot=$(screenshot_last $path)
+
+if [ $? -ne 0 ]; then
+    echo $screenshot
+    exit 1
+fi
+
+url=$(curl -s --upload-file "$screenshot" http://partou.se/upload/jemhW/shot.png)
+
+echo $url | xclip -selection c
+echo $url

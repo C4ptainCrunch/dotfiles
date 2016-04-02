@@ -1,0 +1,9 @@
+[Desktop Entry]
+Categories=;
+Comment=Edit file in Sublime Text
+Exec=sublime_text -a %f
+GenericName=Process Viewer
+Hidden=false
+Name=Sublime Text
+Type=Application
+Version=1.0

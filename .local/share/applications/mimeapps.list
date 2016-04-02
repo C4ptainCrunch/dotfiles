@@ -1,0 +1,4 @@
+[Default Applications]
+text/plain=sublime_text.desktop
+application/javascript=sublime_text.desktop
+application/x-desktop=sublime_text.desktop
