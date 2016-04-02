@@ -30,7 +30,7 @@ if [ -f "$HOME/.local/etc/computername" ]; then
 fi
 
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-    computername="%F{cyan}$computername%F{white}"
+    computername="%F{yellow}►%F{cyan}$computername%F{white}"
 fi
 
 # Detection du type de gestionnaire de version
