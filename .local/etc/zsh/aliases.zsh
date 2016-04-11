@@ -9,3 +9,4 @@ alias l='ls'
 alias dm='youtube-dl -x -t --audio-format=mp3 --audio-quality=256K'
 alias json="python -m json.tool"
 alias fuck='eval $(thefuck $(fc -ln -1 | tail -n 1)); fc -R'
+alias activate='source activate'

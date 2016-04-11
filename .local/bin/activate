@@ -1,5 +1,4 @@
 #!/bin/bash
-
 if [ $# -eq 0 ]; then
     if [ -f "ve/bin/activate" ]; then
         venv="ve"
@@ -14,9 +13,7 @@ if [ $# -eq 0 ]; then
         echo "Usage: $0 VENV";
         exit 1;
     fi
-fi
-
-if [ -f "$1/bin/activate" ]; then
+elif [ -f "$1/bin/activate" ]; then
     venv=$1
 else
     echo "Could not activate : '$1' is not a virtualenv."
